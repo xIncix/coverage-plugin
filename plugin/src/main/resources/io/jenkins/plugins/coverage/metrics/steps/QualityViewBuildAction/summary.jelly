@@ -1,0 +1,28 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:t="/lib/hudson">
+  <!-- summary-block unterhalb des Build-Headers -->
+  <t:summary icon="${it.iconFileName}">
+    <div id="quality-summary-${it.urlName}">
+      <!-- Link zur Detailseite -->
+      <h4>
+        <a href="${it.urlName}/">${it.displayName}</a>
+      </h4>
+
+      <!-- zeige Quality-Gate-Status, falls vorhanden -->
+      <j:if test="${it.qualityGateResult != null}">
+        <p>
+          Quality Gate Result:
+          <strong>${it.qualityGateResult.overallStatus}</strong>
+        </p>
+      </j:if>
+
+      <!-- zeige Kurzinfo zum Node-Ergebnis -->
+      <j:if test="${it.result != null}">
+        <p>
+          Coverage Root Node:
+          <em>${it.result.name}</em>
+        </p>
+      </j:if>
+    </div>
+  </t:summary>
+</j:jelly>

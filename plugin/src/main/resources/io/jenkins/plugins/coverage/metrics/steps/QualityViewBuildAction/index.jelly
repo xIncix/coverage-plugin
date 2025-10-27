@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div class="jenkins-alert jenkins-alert-info">
+  Hello world
+</div>
