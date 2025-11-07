@@ -23,6 +23,7 @@
           <em>${it.result.name}</em>
         </p>
       </j:if>
+      <strong>${it.qualityMetrics}</strong>
     </div>
   </t:summary>
 </j:jelly>
