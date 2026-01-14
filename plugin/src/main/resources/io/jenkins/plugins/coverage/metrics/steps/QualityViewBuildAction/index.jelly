@@ -1,0 +1,21 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core"
+         xmlns:st="jelly:stapler"
+         xmlns:l="/lib/layout">
+
+  <st:header name="Content-Type" value="text/html;charset=UTF-8"/>
+  <st:adjunct includes="io.jenkins.plugins.echarts"/>
+
+  <l:card title="Quality Metrics">
+    <div id="quality-chart" style="width:100%; height:350px;">
+      Chart
+    </div>
+  </l:card>
+
+  <!-- TODO Binding wie in Vorlage -->
+  <script>
+    window.metricsData = JSON.parse('${it.qualityMetrics}');
+  </script>
+
+  <st:adjunct includes="io.jenkins.plugins.coverage.metrics.steps.QualityViewBuildAction.quality-view"/>
+</j:jelly>

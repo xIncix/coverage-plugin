@@ -55,7 +55,13 @@ public class CoverageReporter {
                     sourceCodeRetention, notifier, log);
         }
 
+        QualityViewBuildAction qualityAction = new QualityViewBuildAction(build, rootNode);
+
         build.addAction(action);
+        boolean exists = build.getActions(QualityViewBuildAction.class).stream().findAny().isPresent();
+        if (!exists) {
+            build.addAction(qualityAction);
+        }
         return action;
     }
 
